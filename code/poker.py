@@ -1,18 +1,3 @@
-<<<<<<< Local Changes
-<<<<<<< Local Changes
-
-# Python Script to automatically Poke people on facebook
-# e
-# USE AT YOUR OWN RISK
-# It was written in a Hurry so no error handling whatsoever and there may be a zillion Bugs
-# And it's not Safe 
-# THOSE WHO USE THIS CODE ARE DOING SO IN THEIR OWN RISK AND THE AUTHOR 
-# IS NOT ACCOUNTABLE FOR ANY DAMAGE WHATSOEVER
-# Usage : poke.py Username password
-=======
->>>>>>> External Changes
-=======
->>>>>>> External Changes
 import argparse
 import contextlib
 import urllib2
