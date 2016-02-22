@@ -1,3 +1,4 @@
 logbook
 requests
 argparse
+BeautifulSoup
