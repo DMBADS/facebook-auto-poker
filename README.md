@@ -29,3 +29,9 @@ To stop the continer, run the following command
 ```
 sudo docker rm -f fb_autopoker
 ```
+
+### View Logs
+See how the script is doing using the following command
+```
+sudo docker logs -f --tail=20 fb_autopoker 
+```

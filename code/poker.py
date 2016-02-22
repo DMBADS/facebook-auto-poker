@@ -1,3 +1,18 @@
+<<<<<<< Local Changes
+<<<<<<< Local Changes
+
+# Python Script to automatically Poke people on facebook
+# e
+# USE AT YOUR OWN RISK
+# It was written in a Hurry so no error handling whatsoever and there may be a zillion Bugs
+# And it's not Safe 
+# THOSE WHO USE THIS CODE ARE DOING SO IN THEIR OWN RISK AND THE AUTHOR 
+# IS NOT ACCOUNTABLE FOR ANY DAMAGE WHATSOEVER
+# Usage : poke.py Username password
+=======
+>>>>>>> External Changes
+=======
+>>>>>>> External Changes
 import argparse
 import contextlib
 import urllib2
@@ -193,7 +208,7 @@ def login():
     handle_login_response(r)
 
 def get_pokes():
-    log.info("Get Pokes")
+    log.debug("Get Pokes")
     
     URL = "https://m.facebook.com/pokes/"
     r = Session.get(URL)
@@ -232,7 +247,7 @@ def main():
     while 1:
         for user in get_pokes():
             poke(user)
-        log.info("Waiting")
+        log.debug("Waiting")
         time.sleep(2)
 
  
