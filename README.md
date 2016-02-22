@@ -1,5 +1,11 @@
 # facebook-auto-poker
 
+###Requirements
+
+This Application runs on Docker
+
+`sudo apt-get install docker.io`
+
 ###Install
 
 First Download and build the Image by running the following the command
