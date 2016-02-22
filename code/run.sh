@@ -1,0 +1,1 @@
+python poker.py -u $FB_USERNAME -p $FB_PASSWORD -t $FB_TWO_STEP 
