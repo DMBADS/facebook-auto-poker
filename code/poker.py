@@ -3,10 +3,12 @@ import contextlib
 import urllib2
 from BeautifulSoup import BeautifulSoup
 import sys
+import random
 import requests
 import re
 import time
 import logbook
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-u', '--username', required=True, help="Your Facebook Username")
@@ -240,7 +242,8 @@ def main():
         for user in get_pokes():
             poke(user)
         log.debug("Waiting")
-        time.sleep(2)
+        #Wait somewhere between 2 seconds and 10 minutes
+        time.sleep(random.randrange(2, 60*10))
         
 
  
