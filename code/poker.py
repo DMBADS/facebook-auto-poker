@@ -4,6 +4,7 @@ import urllib2
 from BeautifulSoup import BeautifulSoup
 import sys
 import requests
+import re
 import time
 import logbook
 
@@ -197,7 +198,10 @@ def get_pokes():
     
     URL = "https://m.facebook.com/pokes/"
     r = Session.get(URL)
-    r.raise_for_status()
+    try:
+        r.raise_for_status()
+    except Exception as e:
+        log.error("error({0}): {1}".format(e.errno, e.strerror))
     
     soup = BeautifulSoup(r.text)
     
@@ -207,9 +211,8 @@ def get_pokes():
 
     for element in poke_area:
         if "poked you" in element.text:
-            poke_url = element.find("a", {"class":"bz y z bb"}).get("href")
-            user_info_element = element.find("div", {"class":"bw"})
-            user_name = user_info_element.text.split("poked you")[0]
+            poke_url = element.find("a", href=re.compile('^/pokes/inline/?')).get("href")
+            user_name = element.text.split("poked you")[0]
             
             out.append(
                 {
@@ -224,16 +227,21 @@ def poke(user):
     log.info("Poking " + user["name"])
     URL = "https://m.facebook.com" + user["poke_url"]
     r = Session.get(URL)
-    r.raise_for_status()
+    try:
+        r.raise_for_status()
+    except Exception as e:
+        log.error("error({0}): {1}".format(e.errno, e.strerror))
 
 def main():
     log.info('Starting')
     login()
+    error_count = 0
     while 1:
         for user in get_pokes():
             poke(user)
         log.debug("Waiting")
         time.sleep(2)
+        
 
  
 
